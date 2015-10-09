@@ -4,6 +4,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+TERM=xterm-256color
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -16,9 +18,6 @@ WHOAMI=`whoami`
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 PATH="/usr/local/heroku/bin:$PATH"
 export PATH
-
-# Load secure ENV Variables (not a source controlled dotfile)
-source ~/.secure
 
 ########
 # SSH
@@ -71,16 +70,10 @@ eval "$(rbenv init -)"
 # ALIAS
 ########
 
-alias network-reload='
- if [ -f /etc/lsb-release ]; then
-   sudo service network-manager restart;
-   sudo service smb restart;
-   sudo service nmb restart;
- elif [ -f /etc/redhat-release ]; then
-   sudo service network restart;
-   sudo service smb restart;
-   sudo service nmb restart;
- fi;
+alias pull-all='
+ for P in `echo ${projects[@]}`;
+   do cd ~/$P && git pull;
+ done;
 '
 
 # Alias definitions.
