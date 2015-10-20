@@ -72,7 +72,8 @@ eval "$(rbenv init -)"
 
 alias pull-all='
  for P in `echo ${projects[@]}`;
-   do cd ~/$P && git pull;
+   do echo "[INFO] ~/$P :: git pull origin master";
+     cd ~/$P && git pull origin master && cd - > /dev/null;
  done;
 '
 
