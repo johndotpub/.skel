@@ -70,8 +70,10 @@ eval "$(rbenv init -)"
 # ALIAS
 ########
 
+export PROJECTS="$(cd ~/source/; ls -d */ | cut -f1 -d'/')"
+
 alias pull-all='
- for P in `echo ${projects[@]}`;
+ for P in `echo $PROJECTS`;
    do echo ''; echo "[INFO] ~/source/$P :: git pull origin master";
      cd ~/source/$P && git pull origin master && cd - > /dev/null;
  done;
