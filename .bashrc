@@ -67,6 +67,14 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 ########
+# DOCKER
+########
+
+if [[ "$OSTYPE" == *"darwin"* ]]; then
+  eval $(docker-machine env default)
+fi
+
+########
 # ALIAS
 ########
 
