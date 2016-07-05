@@ -87,6 +87,20 @@ alias pull-all='
  done;
 '
 
+alias co-master-all='
+ for P in `echo $PROJECTS`;
+   do echo ''; echo "[INFO] ~/source/$P :: git stash && git checkout master";
+     cd ~/source/$P && git stash && git checkout master && cd - > /dev/null;
+ done;
+'
+
+alias p-master-all='
+ for P in `echo $PROJECTS`;
+   do echo ''; echo "[INFO] ~/source/$P :: git stash && git checkout master && git pull";
+     cd ~/source/$P && git stash && git checkout master && git pull && cd - > /dev/null;
+ done;
+'
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
