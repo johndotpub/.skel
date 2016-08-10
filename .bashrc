@@ -78,7 +78,7 @@ fi
 # ALIAS
 ########
 
-export PROJECTS="$(cd ~/source/; ls -d */ | cut -f1 -d'/')"
+export PROJECTS="$(if [ -d '~/source/' ]; then cd ~/source/; ls -d */ | cut -f1 -d'/'; fi)"
 
 alias pull-all='
  for P in `echo $PROJECTS`;
