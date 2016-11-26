@@ -67,12 +67,11 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 ########
-# DOCKER
+# NODE
 ########
 
-if [[ "$OSTYPE" == *"darwin"* ]]; then
-  eval $(docker-machine env default)
-fi
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
 
 ########
 # ALIAS
@@ -137,10 +136,6 @@ HISTFILESIZE=1024000
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
